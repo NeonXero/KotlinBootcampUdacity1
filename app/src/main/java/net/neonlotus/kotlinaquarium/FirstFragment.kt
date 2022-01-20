@@ -62,7 +62,7 @@ class FirstFragment : Fragment() {
         //lesson35(Calendar.getInstance().get(Calendar.HOUR_OF_DAY).toString())
         //lesson35("4")
 
-        //less 3-6
+        //lesson 3-6
         //feedTheFish()
 
         //Less 3-7 quiz
