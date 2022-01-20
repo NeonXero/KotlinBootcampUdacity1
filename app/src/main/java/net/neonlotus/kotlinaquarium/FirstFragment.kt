@@ -55,7 +55,7 @@ class FirstFragment : Fragment() {
         //Forget lesson
         //dayOfWeek()
 
-        //Lesson 3 item 4?
+        //Lesson 3 item 4??
         //dingus()
 
         //Lesson 3 item 5, time of day
