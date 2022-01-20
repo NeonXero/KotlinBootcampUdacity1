@@ -173,5 +173,5 @@ class FirstFragment : Fragment() {
         val birthdays = listOf(1, 5, 9, 14, 19, 22, 30)
         return birthdays[Random().nextInt(7)]
     }
-    //trying to get this on github for these test function tracking things
+    //trying to get this on github for these test function tracking things. Nope. Actually yes, just looking at wrong branch :(
 }
