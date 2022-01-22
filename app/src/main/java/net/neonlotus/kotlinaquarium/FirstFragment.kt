@@ -37,13 +37,54 @@ class FirstFragment : Fragment() {
 
             //Let the games begin
             //val params: Array<String> = arrayOf("Pass-me")
-            fishMain()
+            //fishMain()
+            //repl316()
+            quiz317()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    //FILTER
+    fun repl316() {
+        val decorations = listOf("rock", "pagoda", "plastic plant", "alligator", "flower pot")
+        //println(decorations.filter { true })
+        //println(decorations.filter { it[0] == 'p' })
+
+        //eager or lazy
+        val eager = decorations.filter { it[0] == 'p' }
+        println(eager)
+
+        val filtered = decorations.asSequence().filter { it[0] == 'p' }
+        println(filtered)
+        println(filtered.toList())
+
+        //apply map lazily
+        val lazyMap = decorations.asSequence().map {
+            println("map: $it")
+            it
+        }
+        println(lazyMap)
+        println("first: ${lazyMap.first()}")
+        println("all: ${lazyMap.toList()}")
+    }
+
+    fun quiz317() {
+        val spices = listOf("curry", "pepper", "cayenne", "ginger", "red curry", "green curry", "red pepper" )
+        //                  5           6          7        6           9       11              10
+        val sortedSpices = spices.filter { it.contains("curry") }.sortedBy { it.length }
+        println("Curry length $sortedSpices")
+
+        val CE = spices.filter { it[0] == 'c' && it[it.length-1] == 'e' }
+        println("CE $CE")
+        val CE2 = spices.filter { it.first() == 'c' && it.last() == 'e' }
+        println("CE2 $CE2")
+
+        val first = spices.subList(0,3).filter { it.first() == 'c' }
+        println("First $first")
     }
 
     fun fishMain() {
@@ -66,17 +107,17 @@ class FirstFragment : Fragment() {
 
 
 
-        var fortune: String = ""
-//        repeat (10) {
+//        var fortune: String = ""
+////        repeat (10) {
+////            fortune = getFortuneCookie(getBirthday())
+////            println("\nYour fortune is: $fortune")
+////            //if (fortune.contains("Take it easy")) break; //no break in a repeat
+////        }
+//        while (!fortune.contains("Take it easy")) {
 //            fortune = getFortuneCookie(getBirthday())
 //            println("\nYour fortune is: $fortune")
-//            //if (fortune.contains("Take it easy")) break; //no break in a repeat
+//            //ends in the 'take it easy' one, correct good
 //        }
-        while (!fortune.contains("Take it easy")) {
-            fortune = getFortuneCookie(getBirthday())
-            println("\nYour fortune is: $fortune")
-            //ends in the 'take it easy' one, correct good
-        }
 
     }
 
