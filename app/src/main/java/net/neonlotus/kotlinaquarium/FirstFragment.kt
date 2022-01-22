@@ -49,13 +49,18 @@ class FirstFragment : Fragment() {
     fun fishMain() {
         //Lesson 3 10 changing water
         //Also lesson 3 11 fit more fish
-        feedTheFish()
+        //feedTheFish()
 
         //Test cases for fitting more fish
-        fitMoreFish(10.0, listOf(3,3,3))
-        fitMoreFish(8.0, listOf(2,2,2), hasDecorations = false)
-        fitMoreFish(9.0, listOf(1,1,3), 3)
-        fitMoreFish(10.0, listOf(), 7, true)
+        //fitMoreFish(10.0, listOf(3,3,3))
+        //fitMoreFish(8.0, listOf(2,2,2), hasDecorations = false)
+        //fitMoreFish(9.0, listOf(1,1,3), 3)
+        //fitMoreFish(10.0, listOf(), 7, true)
+
+        //3-13
+        //println(whatShouldIDoToday("sad"))
+        //println(whatShouldIDoToday("happy"))
+        //println(whatShouldIDoToday("wat"))
     }
 
     //default first, no default next
@@ -106,6 +111,16 @@ class FirstFragment : Fragment() {
         val maxSize = if (hasDecorations)  tankSize*.8 else tankSize
 
         println(existingFish + fishSize <= maxSize)
+    }
+
+    //Practice 3-13
+    fun whatShouldIDoToday(mood: String, weather: String = "sunny", temperature: Int = 24): String {
+        return when {
+            mood == "happy" && weather == "sunny" -> "go for a walk"
+            mood == "wat" -> "do wat"
+            else -> "Stay home and read."
+        }
+
     }
 
 }
