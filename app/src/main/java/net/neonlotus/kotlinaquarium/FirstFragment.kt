@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import net.neonlotus.kotlinaquarium.databinding.FragmentFirstBinding
+import java.lang.Math.random
 import java.util.*
 
 /**
@@ -37,9 +38,11 @@ class FirstFragment : Fragment() {
 
             //Let the games begin
             //val params: Array<String> = arrayOf("Pass-me")
-            //fishMain()
+            fishMain()
             //repl316()
-            quiz317()
+            //quiz317()
+            //repl318()
+            quiz319()
         }
     }
 
@@ -85,6 +88,72 @@ class FirstFragment : Fragment() {
 
         val first = spices.subList(0,3).filter { it.first() == 'c' }
         println("First $first")
+    }
+
+    fun repl318() {
+        { println("Hello")}()
+        val swim = { println("swim \n")}
+        swim()
+
+        val dirty = 20
+        //val waterFilter = { dirty:Int -> dirty/2}
+        val waterFilter: (Int) -> Int = { dirty -> dirty / 2}
+        println(waterFilter(dirty))
+    }
+
+    fun updateDirty(dirty: Int, operation: (Int) -> Int): Int {
+        return operation(dirty)
+    }
+    fun dirtyProcessor() {
+        var dirty = 20
+        val waterFilter: (Int) -> Int = { dirty -> dirty / 2}
+        fun feedFish(dirty: Int) = dirty + 10
+
+        dirty = updateDirty(dirty, waterFilter)
+        dirty = updateDirty(dirty, ::feedFish)
+        dirty = updateDirty(dirty) { dirty ->
+            dirty + 50
+        }
+    }
+    //whew
+
+    //Practice Quiz 3-19
+    /*
+    val random1 = random() VS val random2 = {random()} =second will generate random number every time random2 is accessed
+     */
+    fun quiz319() {
+        val random1 = random() //decided at compile time
+        val random2 = {random()} //decided any time random2 is accessed
+
+        quiz319lambda()
+    }
+
+    fun quiz319lambda() {
+        /*
+        Create a lambda and assign it to rollDice, which returns a dice roll (number between 1 and 12).
+        Extend the lambda to take an argument indicating the number of sides of the dice used for the roll.
+        If you haven't done so, fix the lambda to return 0 if the number of sides passed in is 0.
+        Create a new variable, rollDice2, for this same lambda using the function type notation.
+         */
+
+        val rollDice = { Random().nextInt(12) + 1}
+//        println("1. $rollDice")
+        val rollDice2 = {sides: Int -> Random().nextInt(sides) + 1}
+//        println("2. $rollDice2")
+        val rollDice3 = {sides: Int -> if (sides == 0) 0 else Random().nextInt(sides) + 1}
+//        println("3. $rollDice3")
+
+        val rrooll: (Int) -> Int = { sides -> if (sides == 0) 0 else Random().nextInt(sides) + 1}
+//        println("4. $rrooll")
+
+        gamePlay(rrooll(4))
+        gamePlay(rrooll(8))
+        gamePlay(rrooll(12))
+        gamePlay(rrooll(16))
+    }
+    fun gamePlay(diceRoll: Int){
+        // do something with the dice roll
+        println(diceRoll)
     }
 
     fun fishMain() {
@@ -155,6 +224,8 @@ class FirstFragment : Fragment() {
         if (shouldChangeWater(day)) {
             println("Change the water today")
         }
+
+        dirtyProcessor()
     }
 
     fun randomDay(): String {
