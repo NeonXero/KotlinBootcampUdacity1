@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import net.neonlotus.kotlinaquarium.databinding.FragmentFirstBinding
 import java.lang.Math.random
 import java.util.*
@@ -36,15 +37,36 @@ class FirstFragment : Fragment() {
         binding.buttonFirst.setOnClickListener {
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 
+            //Lesson 4-3
+            //val spice1 = SimpleSpice()
+            //println("Name = ${spice1.name} and heat = ${spice1.heat}")
+
+
+
             //Let the games begin
             //val params: Array<String> = arrayOf("Pass-me")
-            fishMain()
+            //fishMain()
             //repl316()
             //quiz317()
             //repl318()
-            quiz319()
+            //quiz319()
+
+            //Lesson 4 - will use second fragment
+
+            //spicy boys 4-5
+            //mild medium hot turbo
+            val someSpices = listOf(Spice("first mild", "mild"), Spice("second medium", "medium"),
+                Spice("third hot", "hot"), Spice("last turbo", "turbo"), Spice("other slop", "lolz"))
+
+            val testInit = Spice("hot jambalaya", "turbo")
+            val spiceOrLess = someSpices.filter { it.heat <= 10 }
+            for (item in spiceOrLess) {
+                println(item.name) //was right all along, I'm just a dingus
+            }
         }
     }
+
+    fun makeSalt() = Spice("salt")
 
     override fun onDestroyView() {
         super.onDestroyView()
