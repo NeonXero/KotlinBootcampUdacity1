@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import net.neonlotus.kotlinaquarium.aquarium.Aquarium
+import net.neonlotus.kotlinaquarium.aquarium.*
 import net.neonlotus.kotlinaquarium.databinding.FragmentSecondBinding
 
 /**
@@ -65,6 +65,23 @@ class SecondFragment : Fragment() {
                 "Length: ${myAquarium2.length} " +
                 "Width: ${myAquarium2.width} " +
                 "Height: ${myAquarium2.height}")
+
+        makeFish()
+    }
+
+    fun makeFish() {
+        val shark = Shark()
+        val pleco = Inheritance.Plecostomus()
+
+        println("Shark: ${shark.color} \n Plecostomus ${pleco.color}")
+
+        shark.eat()
+        pleco.eat()
+    }
+
+    fun feedFish(fish: FishAction) {
+        //make some food then
+        fish.eat()
     }
 
     override fun onDestroyView() {

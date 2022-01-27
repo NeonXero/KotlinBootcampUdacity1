@@ -35,7 +35,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 
             //Lesson 4-3
             //val spice1 = SimpleSpice()
@@ -55,14 +55,14 @@ class FirstFragment : Fragment() {
 
             //spicy boys 4-5
             //mild medium hot turbo
-            val someSpices = listOf(Spice("first mild", "mild"), Spice("second medium", "medium"),
-                Spice("third hot", "hot"), Spice("last turbo", "turbo"), Spice("other slop", "lolz"))
-
-            val testInit = Spice("hot jambalaya", "turbo")
-            val spiceOrLess = someSpices.filter { it.heat <= 10 }
-            for (item in spiceOrLess) {
-                println(item.name) //was right all along, I'm just a dingus
-            }
+//            val someSpices = listOf(Spice("first mild", "mild"), Spice("second medium", "medium"),
+//                Spice("third hot", "hot"), Spice("last turbo", "turbo"), Spice("other slop", "lolz"))
+//
+//            val testInit = Spice("hot jambalaya", "turbo")
+//            val spiceOrLess = someSpices.filter { it.heat <= 10 }
+//            for (item in spiceOrLess) {
+//                println(item.name) //was right all along, I'm just a dingus
+//            }
         }
     }
 
